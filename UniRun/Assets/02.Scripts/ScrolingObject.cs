@@ -8,8 +8,12 @@ public class ScrolingObject : MonoBehaviour
     public float speed = 10f; //이동 속도
     void Update()
     {
-        //초당 speed의 속도로 왼쪽으로 평행이동
-        transform.Translate(Vector3.left * speed * Time.deltaTime);
-        //transform.Translate(new Vector2(-1, 0) * speed *Time.deltaTime, Space.Self);
+        // 게임 오버가 아니라면
+        if (!GameManager.instance.isGameover)
+        {
+            //초당 speed의 속도로 왼쪽으로 평행이동
+            transform.Translate(Vector3.left * speed * Time.deltaTime);
+            //transform.Translate(new Vector2(-1, 0) * speed *Time.deltaTime, Space.Self);
+        }
     }
 }
